@@ -65,3 +65,29 @@ axs[2].plot(names, values)
 fig.suptitle('Categorical Plotting')
 
 plt.show()
+
+
+
+# Age Categories vs death count
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+df = pd.read_csv('C:\\Users\\uni\\Downloads\\train.csv')
+
+
+
+infants = df[(1 <=df['Age']) & (df['Age'] <= 5)]
+children = df[(6 <=df['Age']) & (df['Age'] <= 12)]
+youth = df[(13 <=df['Age']) & (df['Age'] <= 24)]
+young_adults = df[(25 <=df['Age']) & (df['Age'] <= 39)]
+adults = df[(40 <=df['Age']) & (df['Age'] <= 60)]
+elderly = df[(61 <=df['Age']) & (df['Age'] <= 100)]
+
+Agegroup_number = [len(infants), len(children), len(youth), len(young_adults), len(adults), len(elderly)]
+Agegroup_name = ['infant', 'children', 'youth', 'young_adults', 'adults', 'elderly']
+ 
+plt.show()
+Agegroup_number                                                                                            
+                                                                                            
+                     
