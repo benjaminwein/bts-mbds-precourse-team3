@@ -1,0 +1,92 @@
+import csv
+
+f=open('C:\\Users\\uni\\Downloads\\train.csv')
+
+Sniffer = csv.Sniffer()
+
+dialect = Sniffer.sniff(f.read(2048))
+
+print(dialect)
+
+f.seek(0)
+
+reader = csv.reader(f,dialect)
+
+Passenger_Id = []
+
+Survived = []
+
+Pclass = []
+
+Name = []
+
+Sex = []
+
+Age = []
+
+Sibsp = []
+
+Parch = []
+
+Ticket = []
+
+Fare = []
+
+Cabin = []
+
+Embarked = []
+
+for row in reader:
+
+    Passenger_Id.append(row[0])
+
+    Survived.append(row[1])
+
+    Pclass.append(row[2])
+
+    Name.append(row[3])
+
+    Sex.append(row[4])
+
+    Age.append(row[5])
+
+    Sibsp.append(row[6])
+
+    Parch.append(row[7])
+
+    Ticket.append(row[8])
+
+    Fare.append(row[9])
+
+    Cabin.append(row[10])
+
+    Embarked.append(row[11])
+
+import matplotlib.pyplot as plt
+
+import scipy
+
+import pandas as pd
+
+import numpy as np
+
+import seaborn as sns
+
+df = pd.read_csv('C:\\Users\\uni\\Downloads\\train.csv')
+
+
+is_male = df['Sex'] == 'male'
+Male = df[is_male]
+is_female = df['Sex'] == 'female'
+Female = df[is_female]
+
+labels = 'Male', 'Female'
+sizes = [577, 314]
+colors = ['turquoise', 'violet']
+explode = (0.1, 0)
+
+plt.pie(sizes, autopct='%1.0f%%', explode=explode, colors=colors, shadow=True)
+plt.axis('equal')
+
+plt.legend(labels, loc="upper right")
+plt.title('Sex Distribution')
